@@ -9,47 +9,55 @@
       font-family: 'Helvetica Neue', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f7fa;
+      background-color: #f9fafb;
       color: #333;
     }
     header {
-      background-color: #007bff;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
+    background-color: #007bff; /* NEW: nice blue background */
+    color: white; /* Make text white */
+    padding: 30px 20px 30px 20px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     }
-    section {
-      padding: 40px 20px;
-      text-align: center;
-      max-width: 800px;
-      margin: auto;
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
     }
-    .download-card {
-      background: white;
-      padding: 30px;
-      margin-top: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      display: inline-block;
-    }
-    .download-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
+    p.subtitle {
       font-size: 18px;
-      background-color: #28a745;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
+      color: #e0e0e0;
+      margin-top: 0;
     }
-    .download-button:hover {
-      background-color: #218838;
+    .apps {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px 20px 80px 20px;
+      flex-wrap: wrap;
     }
-    footer {
-      font-size: 13px;
-      color: gray;
-      margin-top: 10px;
+    .app-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      width: 250px;
+      text-align: center;
+      padding: 20px;
+    }
+    .app-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 5px;
+    }
+    .app-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .app-card p {
+      font-size: 14px;
+      color: #666;
     }
   </style>
 </head>
@@ -57,23 +65,41 @@
 <body>
   <header>
     <h1>Welcome to SparkApps</h1>
-    <p>Simple, Handy Apps for Everyday Life</p>
+    <p class="subtitle">Simple, Handy Apps for Everyday Life</p>
   </header>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>At SparkApps, we create lightweight, practical tools to make your work and life easier. Stay tuned for more releases!</p>
-  </section>
+  <section class="apps">
+    <!-- <div class="app-card">
+      <img src="./downloads/Orbit.png" alt="Orbit App">
+      <h3>Orbit</h3>
+      <p>Keep your system active by intelligently moving the mouse when idle.</p>
+    </div> -->
 
-  <section id="download">
-    <h2>Download Orbit</h2>
-    <div class="download-card">
-      <p><strong>Orbit</strong> is a lightweight <strong>macOS</strong> background utility that intelligently prevents your system from going idle by moving the mouse cursor when needed.</p>
-      <a href="./downloads/Orbit.zip" class="download-button" download>🚀 Download Orbit for Mac</a>
-      <footer>
-        (Note: If macOS blocks opening, right-click the app, select <strong>Open</strong>, and confirm.)
-      </footer>
+    <div class="app-card" onclick="confirmDownload()">
+      <img src="./images/Orbit.png" alt="Orbit App">
+      <h3>Orbit</h3>
+      <p>Keep your system active by intelligently moving the mouse when idle.</p>
+    </div>   
+
+    <div class="app-card">
+      <img src="./downloads/placeholder.png" alt="App 2">
+      <h3>App 2</h3>
+      <p>Body text for whatever you'd like to expand on the main point.</p>
     </div>
+
+    <div class="app-card">
+      <img src="./downloads/placeholder.png" alt="App 3">
+      <h3>App 3</h3>
+      <p>Body text for whatever you'd like to share more.</p>
+    </div>
+
+    <script>
+    function confirmDownload() {
+      if (confirm("Orbit is ready for you! Download now?")) {
+        window.location.href = "./downloads/Orbit.zip";
+      }
+    }
+    </script>
   </section>
 </body>
 </html>
