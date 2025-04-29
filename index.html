@@ -59,6 +59,71 @@
       font-size: 14px;
       color: #666;
     }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .modal-content h2 {
+      text-align: center; /* Keep title centered */
+    }
+
+    .modal-content p {
+      text-align: left; /* Left-align all paragraph text */
+      font-size: 15px;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 15px;
+    }
+    .close {
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .modal-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .download-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .download-button:hover {
+      background-color: #0056b3;
+    }
+    .disabled-button {
+      background-color: #ccc;
+      color: #777;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: not-allowed;
+      font-weight: bold;
+    }
+
   </style>
 </head>
 
@@ -70,11 +135,11 @@
 
   <section class="apps">
 
-    <div class="app-card" onclick="confirmDownload()">
+    <div class="app-card" onclick="openModal()">
       <img src="./images/Orbit.png" alt="Orbit App">
       <h3>Orbit</h3>
       <p>Keep your system active by intelligently moving the mouse when idle.</p>
-    </div>   
+    </div>    
 
     <div class="app-card">
       <img src="./downloads/placeholder.png" alt="App 2">
@@ -88,13 +153,43 @@
       <p>Body text for whatever you'd like to share more.</p>
     </div>
 
+    <div id="orbitModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>About Orbit</h2>
+        <p><strong>Orbit</strong> is a lightweight background utility that prevents your system from going idle by intelligently moving the mouse cursor.</p>
+
+        <p>It checks every <strong>30 seconds</strong> to see if the user has moved the mouse. If so, it does nothing.</p>
+
+        <p>But if the mouse stays stationary for <strong>3 minutes</strong>, Orbit gently nudges the cursor in a random direction to keep your session active.</p>
+
+        <p>This makes Orbit perfect for staying connected during long meetings, avoiding screen timeouts, or keeping your display awake while you work hands-free.</p>
+
+        <div class="modal-buttons">
+          <a href="./downloads/macOS/Orbit.zip" class="download-button">Download for macOS</a>
+          <button class="disabled-button" disabled>Coming Soon for Windows</button>
+        </div>
+      </div>
+    </div>
+
     <script>
-    function confirmDownload() {
-      if (confirm("Orbit is ready for you! Download now?")) {
-        window.location.href = "./downloads/macOS/Orbit.zip";
+      function openModal() {
+        document.getElementById("orbitModal").style.display = "block";
       }
-    }
-    </script>
+      
+      function closeModal() {
+        document.getElementById("orbitModal").style.display = "none";
+      }
+      
+      // Optional: Close when clicking outside the modal box
+      window.onclick = function(event) {
+        const modal = document.getElementById("orbitModal");
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      }
+      </script>
+      
   </section>
 </body>
 </html>
