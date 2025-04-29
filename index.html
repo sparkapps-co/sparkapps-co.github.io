@@ -2,76 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to SparkApps</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Helvetica Neue', sans-serif;
       margin: 0;
       padding: 0;
-      text-align: center;
-      background-color: #f9f9f9;
+      background-color: #f5f7fa;
+      color: #333;
     }
     header {
-      background-color: #0073e6;
+      background-color: #007bff;
       color: white;
       padding: 60px 20px;
+      text-align: center;
     }
     section {
       padding: 40px 20px;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
     }
-    footer {
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      font-size: 14px;
+    .download-card {
+      background: white;
+      padding: 30px;
+      margin-top: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: inline-block;
     }
-    a.button {
+    .download-button {
       display: inline-block;
       margin-top: 20px;
       padding: 12px 24px;
-      background-color: #0073e6;
+      font-size: 18px;
+      background-color: #28a745;
       color: white;
       text-decoration: none;
       border-radius: 6px;
-      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
-    a.button:hover {
-      background-color: #005bb5;
+    .download-button:hover {
+      background-color: #218838;
+    }
+    footer {
+      font-size: 13px;
+      color: gray;
+      margin-top: 10px;
     }
   </style>
 </head>
 
 <body>
+  <header>
+    <h1>Welcome to SparkApps</h1>
+    <p>Simple, Handy Apps for Everyday Life</p>
+  </header>
 
-<header>
-  <h1>Welcome to SparkApps</h1>
-  <p>Simple, Handy Apps for Everyday Life</p>
-</header>
-
-<section>
-  <h2>About</h2>
-  <p>At SparkApps, we create lightweight, practical tools to make your work and life easier. Stay tuned for our first release — Mouse Mover!</p>
-  
-  <section style="text-align: center; padding: 50px;">
-    <h2>Download Orbit</h2>
-    <p>Orbit is a lightweight <strong>macOS</strong> background utility that intelligently prevents your system from going idle by moving the mouse cursor when needed.</p>
-    <a href="./downloads/Orbit.zip" download>
-      <button style="padding: 15px 30px; font-size: 18px; margin-top: 20px; cursor: pointer;">
-        🚀 Download Orbit for Mac
-      </button>
-    </a>
-    <p style="font-size: 14px; color: gray; margin-top: 10px;">
-      (Note: If macOS blocks opening, right-click the app, select <strong>Open</strong>, and confirm.)
-    </p>
+  <section id="about">
+    <h2>About</h2>
+    <p>At SparkApps, we create lightweight, practical tools to make your work and life easier. Stay tuned for more releases!</p>
   </section>
-  
-  <a href="#" class="button">Coming Soon!</a>
-</section>
 
-<footer>
-  © 2025 SparkApps. All rights reserved.
-</footer>
-
+  <section id="download">
+    <h2>Download Orbit</h2>
+    <div class="download-card">
+      <p><strong>Orbit</strong> is a lightweight <strong>macOS</strong> background utility that intelligently prevents your system from going idle by moving the mouse cursor when needed.</p>
+      <a href="./downloads/Orbit.zip" class="download-button" download>🚀 Download Orbit for Mac</a>
+      <footer>
+        (Note: If macOS blocks opening, right-click the app, select <strong>Open</strong>, and confirm.)
+      </footer>
+    </div>
+  </section>
 </body>
 </html>
